@@ -204,3 +204,10 @@ h1 {
         padding: 5px;
     }
 }
+
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}

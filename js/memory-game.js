@@ -4,10 +4,18 @@ let flippedCards = [];
 let matchedCards = [];
 let board = document.getElementById("memoryBoard");
 let winnerMessage = document.getElementById("winnerMessage");
+let timerDisplay = document.createElement("p"); // Timer display element
+let timer;
+let timeElapsed = 0;
+let gameStarted = false;
 
 // Sounds
 const flipSound = new Audio("sounds/click.mp3");
 const winSound = new Audio("sounds/win.mp3");
+
+// Append timer to the DOM
+timerDisplay.classList.add("timer");
+document.querySelector(".glow").insertBefore(timerDisplay, board);
 
 // Shuffle function
 function shuffle(array) {
@@ -21,6 +29,7 @@ function setupGame() {
     matchedCards = [];
     winnerMessage.textContent = "";
     shuffle(cards);
+    resetTimer();
 
     cards.forEach((emoji, index) => {
         const card = document.createElement("div");
@@ -36,6 +45,11 @@ function setupGame() {
 // Handle card click
 function handleCardClick(event) {
     const card = event.target;
+
+    if (!gameStarted) {
+        startTimer();
+        gameStarted = true;
+    }
 
     // Ignore clicks on matched cards or already flipped ones
     if (flippedCards.length >= 2 || flippedCards.includes(card) || card.classList.contains("matched")) {
@@ -66,7 +80,8 @@ function checkMatch() {
         matchedCards.push(card1, card2);
 
         if (matchedCards.length === cards.length) {
-            winnerMessage.textContent = "You Win! 🎉";
+            stopTimer();
+            winnerMessage.textContent = `You Win! 🎉 Time: ${timeElapsed} sec`;
             winSound.play();
         }
     } else {
@@ -77,6 +92,27 @@ function checkMatch() {
     }
 
     flippedCards = [];
+}
+
+// Timer functions
+function startTimer() {
+    timeElapsed = 0;
+    timerDisplay.textContent = `Time: ${timeElapsed} sec`;
+    timer = setInterval(() => {
+        timeElapsed++;
+        timerDisplay.textContent = `Time: ${timeElapsed} sec`;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timer);
+}
+
+function resetTimer() {
+    stopTimer();
+    timeElapsed = 0;
+    timerDisplay.textContent = `Time: 0 sec`;
+    gameStarted = false;
 }
 
 // Restart game
@@ -90,4 +126,3 @@ setupGame();
 function navigateTo(url) {
     window.location.href = url;
 }
-
