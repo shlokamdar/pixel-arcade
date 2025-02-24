@@ -1,0 +1,218 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background-color: #222;
+    color: #ffccff;
+    overflow: hidden;
+}
+
+/* Background Video */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Glowing Game Box */
+.glow {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff66ff, 0 0 45px #cc00cc;
+    text-align: center;
+    max-width: 510px;
+    width: 100%;
+    border: 3px solid #ff66ff;
+}
+
+/* Title */
+h1 {
+    font-size: 22px;
+    color: #ffccff;
+    text-shadow: 2px 2px #ff00ff;
+}
+
+/* Tic-Tac-Toe Board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff66ff;
+    margin: 10px auto;
+    max-width: 350px;
+}
+
+.cell {
+    width: 90px;
+    height: 90px;
+    font-size: 36px;
+    text-align: center;
+    line-height: 90px;
+    background-color: #222;
+    border: 3px solid #ff66ff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cell:hover {
+    background-color: #ff00ff;
+    box-shadow: 0 0 10px #ff66ff;
+}
+
+/* Winner Message */
+.winner-message {
+    color: #ffccff;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Highlight Winning Cells */
+.win-cell {
+    background-color: #ffeb3b;
+    animation: glow 0.5s infinite alternate;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #ffeb3b;
+    }
+    100% {
+        box-shadow: 0 0 20px #ffeb3b, 0 0 30px #ffeb3b;
+    }
+}
+
+/* Restart Button */
+.pixel-btn {
+    background-color: #ff66ff;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.pixel-btn:hover {
+    background-color: #ff00ff;
+    box-shadow: 0 0 15px #ff66ff;
+}
+
+/* Game Selection Links */
+.game-selection {
+    margin-top: 20px;
+}
+
+.game-selection h2 {
+    font-size: 16px;
+    color: #ffccff;
+}
+
+.game-link {
+    display: block;
+    margin: 8px auto;
+    padding: 8px;
+    text-decoration: none;
+    background-color: #ff99ff;
+    color: black;
+    border: 2px solid white;
+    text-align: center;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.game-link:hover {
+    background-color: #ff66ff;
+    box-shadow: 0 0 10px #ff66ff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .glow {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .board {
+        gap: 6px;
+        max-width: 270px;
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        line-height: 80px;
+    }
+
+    .pixel-btn {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .glow {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    .board {
+        gap: 5px;
+        max-width: 240px;
+    }
+
+    .cell {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        line-height: 70px;
+    }
+
+    .pixel-btn {
+        font-size: 12px;
+        padding: 7px 12px;
+    }
+
+    .game-link {
+        font-size: 12px;
+        padding: 6px;
+    }
+}

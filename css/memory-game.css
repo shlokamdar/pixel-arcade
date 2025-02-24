@@ -1,0 +1,174 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background-color: #222;
+    color: #ffccff;
+    overflow: hidden;
+}
+
+/* Background Video */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Glowing Game Box */
+.glow {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff66ff, 0 0 45px #cc00cc;
+    text-align: center;
+    max-width: 510px;
+    width: 100%;
+    border: 3px solid #ff66ff;
+}
+
+/* Title */
+h1 {
+    font-size: 22px;
+    color: #ffccff;
+    text-shadow: 2px 2px #ff00ff;
+}
+
+/* Memory Board */
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff66ff;
+    margin: 10px auto;
+    max-width: 350px;
+}
+
+.memory-card {
+    width: 60px;
+    height: 70px;
+    font-size: 32px;
+    text-align: center;
+    line-height: 70px;
+    background-color: #222;
+    border: 3px solid #ff00ff; 
+    color: white;
+    cursor: pointer; 
+}
+
+
+
+.memory-card:hover {
+    background-color: #ff00ff;
+    box-shadow: 0 0 10px #ff66ff;
+}
+
+/* Matched Tiles */
+.matched {
+    background-color: #00ff00 !important;
+    box-shadow: 0 0 10px #00ff00 !important;
+    border: 3px solid #00ff00; 
+}
+
+/* Winner Message */
+.winner-message {
+    color: #ffccff;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Restart Button */
+.pixel-btn {
+    background-color: #ff66ff;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.pixel-btn:hover {
+    background-color: #ff00ff;
+    box-shadow: 0 0 15px #ff66ff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .glow {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .memory-board {
+        max-width: 280px;
+    }
+
+    .memory-card {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        line-height: 60px;
+    }
+
+    .pixel-btn {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .glow {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    .memory-board {
+        max-width: 240px;
+    }
+
+    .memory-card {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        line-height: 50px;
+    }
+
+    .pixel-btn {
+        font-size: 12px;
+        padding: 7px 12px;
+    }
+}

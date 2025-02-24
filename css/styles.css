@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #F7B5F6;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    overflow: hidden;
+    background-color: #527988;
+}
+
+/* Background Styling */
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #CD00F1;
+    text-shadow: 3px 3px #E3D0E7;
+}
+
+/* Game Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+}
+
+.game-card {
+    background: linear-gradient(145deg, #9a26ff, #8AADDF);
+    padding: 15px;
+    border: 3px solid #8986C3;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    font-size: 14px;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #DCA2F3;
+}
+
+.pixel-art {
+    width: 40px;
+    height: 40px;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #DCA2F3;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    border-top: 3px solid #F7B5F6;
+}
+
+.footer a {
+    color: #71A5D9;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #DD94EA;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+    
+    .game-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .game-card {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .pixel-art {
+        width: 35px;
+        height: 35px;
+    }
+
+    .footer {
+        font-size: 10px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .game-card {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .pixel-art {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer {
+        font-size: 10px;
+        padding: 5px;
+    }
+}
